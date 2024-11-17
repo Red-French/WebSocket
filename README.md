@@ -17,12 +17,6 @@ This repository demonstrates a simple WebSocket server implemented in Node.js. T
 
 ---
 
-## Project Structure
-. ├── public/ │ ├── index.html # Static HTML file served by the server │ └── ... # Additional assets (CSS, JS, etc.) ├── index.js # Server implementation using express ├── index_usingFS.js # Server implementation using fs and http ├── README.md # Project description and usage instructions ├── package.json # Project dependencies and scripts └── .gitignore # Files to ignore in Git
-
-
----
-
 ## Getting Started
 
 ### Prerequisites
@@ -37,13 +31,13 @@ This repository demonstrates a simple WebSocket server implemented in Node.js. T
     npm install
 
 ## Running the Project
-# Start the Server (Using Express)
+### Start the Server (Using Express)
 Run the server with express:  node index.js
 
-# Start the Server (Using FS)
+### Start the Server (Using FS)
 Run the alternative server with fs:  node index_usingFS.js
 
-# Access the Server
+### Access the Server
 Open your browser and navigate to:
 http://localhost:8082
 
@@ -52,7 +46,7 @@ http://localhost:8082
 2. Check for a successful WebSocket connection message: Connected to WebSocket server.
 3. Interact with the WebSocket server by sending messages and observing the responses.
 
-## Notes
+### Notes
 * The index.js file uses the express framework for simplicity and scalability.
 * The index_usingFS.js file demonstrates serving files manually using the fs library and native http module.
 * The WebSocket server logic remains identical in both implementations.
