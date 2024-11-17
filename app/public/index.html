@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket Example</title>
+</head>
+<body>
+  <h1>WebSocket Example</h1>
+  <p>This content is served via the HTTP server at <strong>http://localhost:8082</strong>.</p>
+  <button id="sendMessage">Send Message</button>
+
+  <script>
+    // Connect to WebSocket server
+    const ws = new WebSocket("ws://localhost:8082"); // using ws:// (insecure) rather than wss:// (secure) 
+													 // because wss:// requires SSL certificate
+    ws.addEventListener("open", () => {
+      console.log("Connected to WebSocket server.");
+      ws.send('Hello, from the browser!');
+    });
+
+    ws.addEventListener("message", (event) => {
+      console.log(`Message from server: ${event.data}`);
+    });
+
+    ws.addEventListener("close", () => {
+      console.log("WebSocket connection closed.");
+    });
+
+    document.getElementById("sendMessage").addEventListener("click", () => {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send("Hello from the button!");
+      } else {
+        console.log("WebSocket is not open.");
+      }
+    });
+  </script>
+</body>
+</html>
